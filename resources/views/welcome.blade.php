@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <title>Laser Help</title>
+        <title>Customer:Laser Help</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -24,6 +24,7 @@
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
         <!--Responsive file-->
         <link href="{{ asset('assets/css/responsive.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css">
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -129,249 +130,55 @@
             </div>
             <div class="responsive_nav collapse navbar-collapse" id="navbarToggleExternalContent">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{route('customers')}}">Submit a Question</a></li>
-                    <li><a href="{{route('providers')}}">Become a LaserHelp Expert</a></li>
-                    @auth
-                    <li><a href="{{route('logout')}}">Logout</a></li>
-                    @else
-                    <li><a href="{{route('login')}}">Login</a></li>
-                    @endauth
+                    <li><a href="{{route('home')}}">Home</a></li>
+                    <li><a href="{{route('customers')}}">Submit Question</a></li>
+                    <li><a href="{{route('providers')}}">Screenshare</a></li>
+                    <li><a href="{{route('providers')}}">My profile</a></li>
+                    <li><a href="">Billing account</a></li>
+                    <li><a href="{{route('providers')}}">Logout</a></li>
                 </ul>
             </div>
         </div>
         <!--Responsive Nav-->
-        <!--Start Slider-->
-        <div class="main_slider owl-carousel owl-theme seaction_margin">
-            <div class="item">
-                <img src="https://via.placeholder.com/1920x860" alt="img" />
-                <div class="slide_content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12">
-                                <h3>Making the best journey in laser help</h3>
-                                <h1>We are the best laser help<br/>
-                                    maintenance company </h1>
-                                <a href="{{route('customers')}}" class="button">Submit a Question</a> 
-                                <a href="{{route('providers')}}" class="button">Become a LaserHelp Expert</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End Slider-->
-        <!--Start About-->
-        <div class="about seaction_margin">
-            <div class="container">
-                <div class="heading_wrap animated fades">
-                    <h2 class="heading_a">About <span>Laser Help</span></h2>
-                    <h5 class="heading_small">Lorem ipsum dolor sit amet consectetur adipisicing elit sed ipsum eiusmod tempor <br />
-                        incididunt utsmat labore et dolore magna aliqua.
-                    </h5>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-3">
-                        <div class="icon_box animated fades">
-                            <img src="assets/images/icons/top_icon1.png" alt="img" />
-                            <h4>Cerfified Workers</h4>
-                        </div>
-                        <div class="icon_box animated fades">
-                            <img src="assets/images/icons/top_icon3.png" alt="img" />
-                            <h4>Honest & Realiable</h4>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 content about_content animated fades">
-                        <p>Ipsum dolor sit amet consectetur adipisicing elit sed eiusmod tempor incididunt sed laboret dolore magna aliquat enim ad minim veniam nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                        <p>Duis aute irure dolor reprehenderit voluptate velit esse cillum dolore fugiat nula pariatur. Excepteur sint occaecat cupidatat non proidentera sunt culpa officia deserunt mollit anim est laborum. Sed perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam ipsa.</p>
-                        <a href="#" class="button brdr">What we offers</a>
-                    </div>
-                    <div class="col-sm-12 col-md-3">
-                        <div class="icon_box animated fades">
-                            <img src="assets/images/icons/top_icon2.png" alt="img" />
-                            <h4>10+ Years Expertise</h4>
-                        </div>
-                        <div class="icon_box animated fades">
-                            <img src="assets/images/icons/top_icon4.png" alt="img" />
-                            <h4>24h Free Helpline</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End About-->
-        <!--Start Services-->
-        <div class="services_wrap seaction_margin">
-            <div class="container">
-                <div class="heading_wrap animated slide">
-                    <h2 class="heading_a">Our <span>Services</span></h2>
-                </div>
-                <div class="row">
-                    <div class="col-sm-12 col-md-6 animated slide">
-                        <div class="service">
-                            <img src="https://via.placeholder.com/555x235" alt="img" />
-                            <div class="service_content">
-                                <div class="row">
-                                    <div class="col-sm-2 col-md-2 icon">
-                                        <img src="assets/images/icons/icon1.png" class="icon_one" alt="img" />
-                                        <img src="assets/images/icons/iconh1.png" class="icon_one icon_two" alt="img" />
-                                    </div>
-                                    <div class="col-sm-10 col-md-10">
-                                        <h3>Landscape Caring</h3>
-                                        <p>Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.
-                                        </p>
-                                        <a href="services.html">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 animated slide">
-                        <div class="service">
-                            <img src="https://via.placeholder.com/555x235" alt="img" />
-                            <div class="service_content">
-                                <div class="row">
-                                    <div class="col-sm-2 col-md-2 icon">
-                                        <img src="assets/images/icons/icon2.png" class="icon_one" alt="img" />
-                                        <img src="assets/images/icons/iconh2.png" class="icon_one icon_two" alt="img" />
-                                    </div>
-                                    <div class="col-sm-10 col-md-10">
-                                        <h3>Watering Gardens</h3>
-                                        <p>Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.
-                                        </p>
-                                        <a href="services.html">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 animated slide">
-                        <div class="service">
-                            <img src="https://via.placeholder.com/555x235" alt="img" />
-                            <div class="service_content">
-                                <div class="row">
-                                    <div class="col-sm-2 col-md-2 icon">
-                                        <img src="assets/images/icons/icon3.png" class="icon_one" alt="img" />
-                                        <img src="assets/images/icons/iconh3.png" class="icon_one icon_two" alt="img" />
-                                    </div>
-                                    <div class="col-sm-10 col-md-10">
-                                        <h3>New Trees Planting</h3>
-                                        <p>Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.
-                                        </p>
-                                        <a href="services.html">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 animated slide">
-                        <div class="service">
-                            <img src="https://via.placeholder.com/555x235" alt="img" />
-                            <div class="service_content">
-                                <div class="row">
-                                    <div class="col-sm-2 col-md-2 icon">
-                                        <img src="assets/images/icons/icon4.png" class="icon_one" alt="img" />
-                                        <img src="assets/images/icons/iconh4.png" class="icon_one icon_two" alt="img" />
-                                    </div>
-                                    <div class="col-sm-10 col-md-10">
-                                        <h3>Rubbbish Cleanup</h3>
-                                        <p>Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.
-                                        </p>
-                                        <a href="services.html">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 animated slide">
-                        <div class="service">
-                            <img src="https://via.placeholder.com/555x235" alt="img" />
-                            <div class="service_content">
-                                <div class="row">
-                                    <div class="col-sm-2 col-md-2 icon">
-                                        <img src="assets/images/icons/icon5.png" class="icon_one" alt="img" />
-                                        <img src="assets/images/icons/iconh5.png" class="icon_one icon_two" alt="img" />
-                                    </div>
-                                    <div class="col-sm-10 col-md-10">
-                                        <h3>Lawn Moving</h3>
-                                        <p>Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.
-                                        </p>
-                                        <a href="services.html">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-12 col-md-6 animated slide">
-                        <div class="service">
-                            <img src="https://via.placeholder.com/555x235" alt="img" />
-                            <div class="service_content">
-                                <div class="row">
-                                    <div class="col-sm-2 col-md-2 icon">
-                                        <img src="assets/images/icons/icon6.png" class="icon_one" alt="img" />
-                                        <img src="assets/images/icons/iconh6.png" class="icon_one icon_two" alt="img" />
-                                    </div>
-                                    <div class="col-sm-10 col-md-10">
-                                        <h3>Design & Planning</h3>
-                                        <p>Abore et dolore magna aliqua ut enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip eiusmod tempor incididunt labore.
-                                        </p>
-                                        <a href="services.html">read more</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--End Services-->
-        <!--Start Testimonials -->
-        <div class="testimonials_wrap  animated slide">
-            <div class="testimonials_inner">
+        <!--Start Quote-->
+        <div class="qoute_wrap seaction_margin  animated entrance">
+            <div class="layer">
                 <div class="container">
-                    <div class="heading_wrap">
-                        <h2 class="heading_a">What <span>customers say</span></h2>
-                    </div>
                     <div class="row">
-                        <div class="col-sm-12 col-md-7">
-                            <a href="#" class="left"><i class="fa fa-long-arrow-left"></i></a>
-                            <a href="#" class="right"><i class="fa fa-long-arrow-right"></i></a>
-                            <div class="testi_slider">
-                                <div class="slide">
-                                    <p>Enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderite voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sind occaecat cupidatat non proident sunt culpa officia.
-                                    </p>
-                                    <div class="user_botom">
-                                        <img src="https://via.placeholder.com/56x56" alt="img" />
-                                        <span> Kenn Thomson <cite>Garden Owner</cite></span>
-                                    </div>
+                        <div class="col-md-2 col-lg-2"></div>
+                        <div class="col-sm-12 col-md-8 col-lg-8">
+                            <div class="qoute">
+                                <div class="heading_wrap">
+                                    <h2 class="heading_a">Get Instant Quote</h2>
+                                    <h5 class="heading_small">Get Instant Quote</h5>
                                 </div>
-                                <div class="slide">
-                                    <p>Enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderite voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sind occaecat cupidatat non proident sunt culpa officia.
-                                    </p>
-                                    <div class="user_botom">
-                                        <img src="https://via.placeholder.com/56x56" alt="img" />
-                                        <span> Kenn Thomson <cite>Garden Owner</cite></span>
+                                <form action="process.php" method="post" id="quote_form" class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <input type="text" class="form-control" placeholder="Paste a link to your loom recordig here" name="get"  />
                                     </div>
-                                </div>
-                                <div class="slide">
-                                    <p>Enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderite voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sind occaecat cupidatat non proident sunt culpa officia.
-                                    </p>
-                                    <div class="user_botom">
-                                        <img src="https://via.placeholder.com/56x56" alt="img" />
-                                        <span> Kenn Thomson <cite>Garden Owner</cite></span>
+                                    <div class="col-sm-12 col-md-12">
+                                        <select class="form-control">
+                                            <option value="">Service Required</option>
+                                            <option value="">Service Required</option>
+                                            <option value="">Service Required</option>
+                                        </select>
                                     </div>
-                                </div>
+                                    
+                                    <div class="col-sm-12 col-md-12">
+                                        <textarea name="question" placeholder="How can we help?" class="form-control" id="question" rows="7"></textarea>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4"></div>
+                                    <div class="col-sm-4 col-md-6">
+                                        <input type="submit" class="button" value="Submit Question" name="get" id="get_quote" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <div class="col-sm-12 col-md-5">
-                            <div class="testi_img">
-                                <img src="https://via.placeholder.com/813x636" alt="img" />
-                            </div>
-                        </div>
+                        <div class="col-md-2 col-lg-3"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--End Testimonials -->
         <!--Start News -->
         <div class="news_wrap seaction_margin">
             <div class="container">

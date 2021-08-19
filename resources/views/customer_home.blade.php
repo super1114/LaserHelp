@@ -137,26 +137,42 @@
             </div>
         </div>
         <!--Responsive Nav-->
-        <!--Start Slider-->
-        <div class="main_slider owl-carousel owl-theme seaction_margin">
-            <div class="item">
-                <img src="https://via.placeholder.com/1920x860" alt="img" />
-                <div class="slide_content">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-12">
-                                <h3>Making the best journey in laser help</h3>
-                                <h1>We are the best laser help<br/>
-                                    maintenance company </h1>
-                                <a href="{{route('customers')}}" class="button">Get help from provider</a> 
-                                <a href="{{route('providers')}}" class="button">Want to help customers</a>
+        <!--Start Quote-->
+        <div class="qoute_wrap seaction_margin  animated entrance">
+            <div class="layer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-2 col-lg-2"></div>
+                        <div class="col-sm-12 col-md-8 col-lg-8">
+                            <div class="qoute">
+                                <div class="heading_wrap">
+                                    <div class="icon_bar"></div>
+                                    <h2 class="heading_a">Get Instant Quote</h2>
+                                </div>
+                                <form action="process.php" method="post" id="quote_form" class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <select class="form-control">
+                                            <option value="">Service Required</option>
+                                            <option value="">Service Required</option>
+                                            <option value="">Service Required</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col-sm-12 col-md-12">
+                                        <textarea name="question" placeholder="How can we help?" class="form-control" id="question" rows="7"></textarea>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4"></div>
+                                    <div class="col-sm-4 col-md-6">
+                                        <input type="submit" class="button" value="Submit Question" name="get" id="get_quote" />
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                        <div class="col-md-2 col-lg-3"></div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--End Slider-->
         <!--Start News -->
         <div class="news_wrap seaction_margin">
             <div class="container">
