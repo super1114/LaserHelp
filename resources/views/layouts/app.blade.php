@@ -41,7 +41,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/vendor/select2/select2.min.css') }}">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/util.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/main.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/custom.css') }}">
 <!--===============================================================================================-->
 @yield('style')
 <style>

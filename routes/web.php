@@ -19,7 +19,7 @@ Route::get('/', function () {
 Route::get('login/{provider}', 'SocialController@redirect');
 Route::get('login/{provider}/callback', 'SocialController@Callback');
 
-Route::group(['middleware' => ['customer_auth']],function(){
+Route::group(['middleware' => ['auth']],function(){
     Route::get('customer', 'CustomerController@index')->name("customers");
 });
 
@@ -28,7 +28,6 @@ Route::get('customer/register', 'CustomerController@register')->name("customer_r
 
 Route::group(['middleware' => ['provider_auth']],function(){
     Route::get('provider', 'ProviderController@index')->name("providers");
-
 });
 Route::get('provider/login', 'ProviderController@login')->name("provider_login");
 Route::get('provider/register', 'ProviderController@register')->name("provider_register");

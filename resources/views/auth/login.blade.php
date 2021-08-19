@@ -7,7 +7,7 @@
             <form class="login100-form validate-form" method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
             @csrf
                 <span class="login100-form-title p-b-55">
-                    Login
+                    Login to <span style="color: rgb(17, 158, 56);">Laser Help</span>
                 </span>
 
                 <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
@@ -51,28 +51,11 @@
                         {{ __('Forgot Your Password?') }}
                     </a>
                 </div>
-
-                <div class="text-center w-full p-t-42 p-b-22">
-                    <span class="txt1">
-                        Or login with
-                    </span>
-                </div>
-
                 
-                <a href="{{ url('/login/facebook') }}" class="btn-face m-b-10">
-                    <i class="fa fa-facebook-official"></i>
-                    Facebook
-                </a>
-
-                <a href="{{ url('/login/google') }}" class="btn-google m-b-10">
-                    <img src="assets/images/icons/icon-google.png" alt="GOOGLE">
-                    Google
-                </a>
-                <div class="text-center w-full p-t-115">
+                <div class="text-center w-full p-t-11">
                     <span class="txt1">
                         Not a member?
                     </span>
-
                     <a class="txt1 bo1 hov1" href="{{ route('register') }}">
                         Sign up now							
                     </a>

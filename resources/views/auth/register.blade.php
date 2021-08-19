@@ -1,73 +1,90 @@
 @extends('layouts.app')
 
-@section('style')
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="{{ asset('assets/fonts/material-icon/css/material-design-iconic-font.min.css') }}">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style_up.css') }}">
-@endsection
-
-@section('script')
-    <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
-
-    <script src="{{ asset('assets/js/main_up.js') }}"></script>
-@endsection
-
 @section('content')
-<div class="main">
+<div class="limiter">
+    <div class="container-login100">
+        <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+            <form class="login100-form validate-form" method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}">
+            @csrf
+                <span class="login100-form-title p-b-55">
+                    Join to <span style="color: rgb(17, 158, 56);">Laser Help</span>
+                </span>
 
-    <section class="signup">
-        <!-- <img src="images/signup-bg.jpg" alt=""> -->
-        <div class="container">
-            <div class="signup-content">
-                <form method="POST" action="{{ route('register') }}" aria-label="{{ __('Register') }}" id="signup-form" class="signup-form">
-                @csrf
-                    <h2 class="form-title">Create account</h2>
-                    <div class="form-group">
-                        <input type="text" class="form-input form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" id = "name" name="name" id="name" placeholder="Your Name" value="{{ old('name') }}" required autofocus />
-                        @if ($errors->has('name'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('name') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-input form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" id="email" placeholder="Your Email" required />
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "User name is required">
+                    <input type="hidden" name="user_type" value="1">
+                    <input class="input100 form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" name="username" placeholder="User name" value="{{ old('username') }}" required autofocus>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <span class="fa fa-user"></span>
+                    </span>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
 
-                        @if ($errors->has('email'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-input form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" placeholder="Password" required />
-                        <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Valid email is required: ex@abc.xyz">
+                    <input class="input100 form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" type="text" name="email" placeholder="Email" value="{{ old('email') }}" required >
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <span class="fa fa-envelope"></span>
+                    </span>
+                    @if ($errors->has('email'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('email') }}</strong>
+                        </span>
+                    @endif
+                </div>
 
-                        @if ($errors->has('password'))
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $errors->first('password') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                    <div class="form-group">
-                        <input type="password" class="form-input form-control" id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Repeat your password" required />
-                    </div>
-                    <div class="form-group">
-                        <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
-                        <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up"/>
-                    </div>
-                </form>
-                <p class="loginhere">
-                    Have already an account ? <a href="{{ route('login') }}" class="loginhere-link">Login here</a>
-                </p>
-            </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+                    <input class="input100 form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" type="password" name="password" placeholder="Password" required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <span class="fa fa-lock"></span>
+                    </span>
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="wrap-input100 validate-input m-b-16" data-validate = "Password is required">
+                    <input class="input100 form-control{{ $errors->has('password_confirmation') ? ' is-invalid' : '' }}" type="password" name="password_confirmation" placeholder="Repeat Password" required>
+                    <span class="focus-input100"></span>
+                    <span class="symbol-input100">
+                        <span class="fa fa-lock"></span>
+                    </span>
+                    @if ($errors->has('password'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('password_confirmation') }}</strong>
+                        </span>
+                    @endif
+                </div>
+                <div class="wrap-input100 validate-input m-b-16">
+                    <select class="input100 select2 form-control" style="height: 62px;" id="usertype" name="usertype">
+                        <option value=""></option>
+                        <option value="1">Customer</option>
+                        <option value="2">Provider</option>
+                    </select>
+                </div>
+                <div class="container-login100-form-btn p-t-25">
+                    <button class="login100-form-btn">
+                        Join
+                    </button>
+                </div>
+                
+                <div class="text-center w-full p-t-11">
+                    <span class="txt1">
+                        Already sign up?
+                    </span>
+                    <a class="txt1 bo1 hov1" href="{{ route('login') }}">
+                        Login here					
+                    </a>
+                </div>
+            </form>
         </div>
-    </section>
-
+    </div>
 </div>
+
 @endsection

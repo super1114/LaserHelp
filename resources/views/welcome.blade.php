@@ -100,15 +100,14 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="{{route('home')}}" class="active">Home</a>
+                                            <a href="{{route('customers')}}" class="active">Submit a Question</a>
                                         </li>
                                         <li >
-                                            <a href="{{route('customers')}}">For Customers</a>
+                                            <a href="{{route('providers')}}">Become a LaserHelp Expert</a>
                                         </li>
                                         <li >
-                                            <a href="{{route('customers')}}" class="">For Providers</a>
+                                            <a href="{{route('login')}}" class="">Login</a>
                                         </li>
-                                        <li><a href="{{route('home')}}">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -126,9 +125,9 @@
             </div>
             <div class="responsive_nav collapse navbar-collapse" id="navbarToggleExternalContent">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{route('home')}}">Home</a></li>
-                    <li><a href="{{route('customers')}}">For Customers</a></li>
-                    <li><a href="{{route('providers')}}">For Providers</a></li>
+                    <li><a href="{{route('customers')}}">Submit a Question</a></li>
+                    <li><a href="{{route('providers')}}">Become a LaserHelp Expert</a></li>
+                    <li><a href="{{route('login')}}">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -144,8 +143,8 @@
                                 <h3>Making the best journey in laser help</h3>
                                 <h1>We are the best laser help<br/>
                                     maintenance company </h1>
-                                <a href="{{route('customers')}}" class="button">Get help from provider</a> 
-                                <a href="{{route('providers')}}" class="button">Want to help customers</a>
+                                <a href="{{route('customers')}}" class="button">Submit a Question</a> 
+                                <a href="{{route('providers')}}" class="button">Become a LaserHelp Expert</a>
                             </div>
                         </div>
                     </div>
