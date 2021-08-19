@@ -13,7 +13,7 @@ class CustomerController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('customer_auth',);
+        $this->middleware('customer_auth');
     }
 
     /**
@@ -25,10 +25,10 @@ class CustomerController extends Controller
     {
         return view('customer_home');
     }
-    public function login()
-    {
-        return view('customer.login');
-    }
+    // public function login()
+    // {
+    //     return view('customer.login');
+    // }
     public function register()
     {
         return view('customer.register');

@@ -18,7 +18,7 @@ class CustomerAuth
     {
         $user = Auth::user();
         if(!$user||!$user->isCustomer()){
-            return redirect(route("customer_login"));
+            return redirect(route("register"));
         }
         return $next($request);
     }

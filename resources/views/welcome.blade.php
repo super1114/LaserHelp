@@ -106,7 +106,11 @@
                                             <a href="{{route('providers')}}">Become a LaserHelp Expert</a>
                                         </li>
                                         <li >
+                                            @auth
+                                            <a href="{{route('logout')}}" class="">Logout</a>
+                                            @else
                                             <a href="{{route('login')}}" class="">Login</a>
+                                            @endauth
                                         </li>
                                     </ul>
                                 </nav>
@@ -127,7 +131,11 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{route('customers')}}">Submit a Question</a></li>
                     <li><a href="{{route('providers')}}">Become a LaserHelp Expert</a></li>
+                    @auth
+                    <li><a href="{{route('logout')}}">Logout</a></li>
+                    @else
                     <li><a href="{{route('login')}}">Login</a></li>
+                    @endauth
                 </ul>
             </div>
         </div>

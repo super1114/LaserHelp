@@ -11,7 +11,7 @@
                 </span>
 
                 <div class="wrap-input100 validate-input m-b-16" data-validate = "User name is required">
-                    <input type="hidden" name="user_type" value="1">
+                    <input type="hidden" name="user_type" value="1" id="user_type">
                     <input class="input100 form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" type="text" name="username" placeholder="User name" value="{{ old('username') }}" required autofocus>
                     <span class="focus-input100"></span>
                     <span class="symbol-input100">
@@ -61,12 +61,14 @@
                         </span>
                     @endif
                 </div>
-                <div class="wrap-input100 validate-input m-b-16">
-                    <select class="input100 select2 form-control" style="height: 62px;" id="usertype" name="usertype">
-                        <option value=""></option>
-                        <option value="1">Customer</option>
-                        <option value="2">Provider</option>
-                    </select>
+                
+                <div class="m-b-16 w-full" style="display: flex; justify-content: space-between;">
+                    <button type="button" class="switch_btn switch_btn_active">
+                        As Customer
+                    </button>
+                    <button type="button" class="switch_btn">
+                        As Expert
+                    </button>
                 </div>
                 <div class="container-login100-form-btn p-t-25">
                     <button class="login100-form-btn">
@@ -87,4 +89,22 @@
     </div>
 </div>
 
+@endsection
+
+@section("script")
+    <script type="text/javascript">
+        $(".switch_btn").on("click", function(e){
+            if($(e.target).hasClass("switch_btn_active")){
+                return;
+            }else {
+               $(".switch_btn").removeClass("switch_btn_active") ;
+               $(e.target).addClass("switch_btn_active");
+               if($("#user_type").val()=="1") {
+                    $("#user_type").val("2")
+               }else {
+                    $("#user_type").val("1");
+               } 
+            }
+        })
+    </script>
 @endsection

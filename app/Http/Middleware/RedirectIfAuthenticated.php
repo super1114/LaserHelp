@@ -17,8 +17,14 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+        $user = Auth::user();
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            if($user->user_type==1){
+                redirect(route("customers"));
+            }else {
+                redirect(route("providers"));
+            }
+            
         }
 
         return $next($request);

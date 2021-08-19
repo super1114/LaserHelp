@@ -19,7 +19,6 @@
 	<script src="{{ asset('assets/vendor/select2/select2.min.js') }}"></script>
     <!--===============================================================================================-->
 	<script src="{{ asset('assets/js/main.js') }}"></script>
-    @yield('script')
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
@@ -59,5 +58,6 @@
             @yield('content')
         </main>
     </div>
+    @yield('script')
 </body>
 </html>

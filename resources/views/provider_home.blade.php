@@ -92,7 +92,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-4">
-                                <a href="{{route('home')}}"><p><span style="font-size: 23px; font-style: italic;">LaserHelp</span> &nbsp;&nbsp;&nbsp; <span style="font-style: italic;">Customer Program</span></p></a>
+                                <a href="{{route('home')}}"><p><span style="font-size: 23px; font-style: italic;">LaserHelp</span> &nbsp;&nbsp;&nbsp; <span style="font-style: italic;">Expert Program</span></p></a>
                             </div>
                             @if (Route::has('login'))
                             <div class="col-sm-12 col-md-12 col-lg-8 text-right">                            
@@ -103,13 +103,6 @@
                                 <a href="{{ url('/home') }}" class="top_btn">Become a LaserHelp Expert</a>                                
                             @else
                                 <a href="{{ route('login') }}" class="top_btn">Sign In</a>
-                                <div class="social_icons">
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                </div>
                             @endauth
                             </div>
                             @endif
