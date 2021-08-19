@@ -132,10 +132,14 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{route('home')}}">Home</a></li>
                     <li><a href="{{route('customers')}}">Submit Question</a></li>
-                    <li><a href="{{route('providers')}}">Screenshare</a></li>
-                    <li><a href="{{route('providers')}}">My profile</a></li>
-                    <li><a href="">Billing account</a></li>
-                    <li><a href="{{route('providers')}}">Logout</a></li>
+                    <li><a href="{{route('providers')}}">Become a LaserHelp Expert</a></li>
+                    <li >
+                        @auth
+                        <a href="{{route('logout')}}" class="">Logout</a>
+                        @else
+                        <a href="{{route('login')}}" class="">Login</a>
+                        @endauth
+                    </li>
                 </ul>
             </div>
         </div>
@@ -148,27 +152,34 @@
                         <div class="col-md-2 col-lg-2"></div>
                         <div class="col-sm-12 col-md-8 col-lg-8">
                             <div class="qoute">
-                                <div class="heading_wrap">
+                                <div class="heading_wrap" style="margin-bottom: 10px;">
                                     <h2 class="heading_a">Get Instant Quote</h2>
-                                    <h5 class="heading_small">Get Instant Quote</h5>
+                                    <h5 class="heading_small">Use <a href="https://www.loom.com" target="_blank" style="color:#7da500">Loom</a> to screencapture your question</h5>
                                 </div>
-                                <form action="process.php" method="post" id="quote_form" class="row">
+                                <form action="" method="post" id="quote_form" class="row">
                                     <div class="col-sm-12 col-md-12">
                                         <input type="text" class="form-control" placeholder="Paste a link to your loom recordig here" name="get"  />
-                                    </div>
-                                    <div class="col-sm-12 col-md-12">
-                                        <select class="form-control">
-                                            <option value="">Service Required</option>
-                                            <option value="">Service Required</option>
-                                            <option value="">Service Required</option>
-                                        </select>
                                     </div>
                                     
                                     <div class="col-sm-12 col-md-12">
                                         <textarea name="question" placeholder="How can we help?" class="form-control" id="question" rows="7"></textarea>
                                     </div>
+                                    <div class="col-sm-12 col-md-12">
+                                        <span style="color: #7da500; cursor: pointer;" class="heading_small">Attach file</span>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 text-center">
+                                        <span class="heading_small">Select all niches that apply</span>
+                                    </div>
+                                    <div class="col-sm-12 col-md-12 mt-2 niches_container" style="display:flex;">
+                                        <button type="button" class="niche">VFX</button>
+                                        <button type="button" class="niche">Code</button>
+                                        <button type="button" class="niche">Programming</button>
+                                        <button type="button" class="niche">Blender</button>
+                                        <button type="button" class="niche">After Effect</button>
+                                        <button type="button" class="niche">Photoshop</button>
+                                    </div>
                                     <div class="col-sm-4 col-md-4"></div>
-                                    <div class="col-sm-4 col-md-6">
+                                    <div class="col-sm-4 col-md-6 mt-4">
                                         <input type="submit" class="button" value="Submit Question" name="get" id="get_quote" />
                                     </div>
                                 </form>
