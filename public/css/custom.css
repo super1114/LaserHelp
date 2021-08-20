@@ -26,3 +26,8 @@ button.active_niche {
 button.active_niche:hover {
     background: rgb(17, 158, 56, 0.6);
 }
+
+.service_content {
+  height: auto !important; 
+  border-radius: 15px !important;
+}

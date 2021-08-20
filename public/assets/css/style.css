@@ -190,7 +190,7 @@ hr {margin: 50px 0;}
 .top_bar p {color: #fff; display: inline-block; margin-right: 20px;}
 .top_bar p i{margin-right: 6px;}
 
-.top_bar .top_btn {font: 700 16px 'Open Sans', arial, sans-serif; color: #fff; line-height: normal;  border-bottom: 3px solid #222222; margin-right: 5px; padding: 14px 10px; display: inline-block;-ms-transition: all 0s;  -o-transition: all 0s;  transition: all 0s;}
+.top_bar .top_btn {font: 700 16px 'Open Sans', arial, sans-serif; color: #fff; line-height: normal; margin-right: 5px; padding: 14px 10px; display: inline-block;-ms-transition: all 0s;  -o-transition: all 0s;  transition: all 0s;}
 .top_bar .active_top_btn {background: #6e9100;}
 .top_bar .social_icons { display: inline-block; }
 .top_bar .social_icons a {width: 30px; height: 30px; display: inline-block; line-height: 26px; margin-right: 5px; border: 2px solid #fff; border-radius: 50%; text-align: center;}
@@ -411,7 +411,7 @@ nav ul li:hover ul.dropdown-menu {display: block;}
 .service .imgs img{-ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s; }
 
 .service:hover .imgs img{transform: rotateY(180deg); }
-.service_content { position: absolute; top: 0px; left: 0px; width: 100%; height: 99%; background: #fff; padding: 45px 0px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s; }
+.service_content { width: 100%; background: #fff; padding: 45px 0px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s; }
 
 .service .icon {transform-style: preserve-3d;transition: all 1.0s linear;}
 .service:hover .icon {transform: rotateY(180deg);}
@@ -422,9 +422,6 @@ nav ul li:hover ul.dropdown-menu {display: block;}
 .service_content h3 {color: #222222; font-size: 18px; font-weight: bold; margin-bottom: 20px; }
 .service_content p { margin-bottom: 20px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s; }
 .service_content a { color: #7da500; font-weight: bold; font-size: 12px; text-transform: uppercase; }
-
-.service:hover .service_content { background: rgba(0,0,0,.7); }
-.service:hover .service_content h3, .service:hover .service_content p { color: #fff; }
 
 .services_two {text-align: center; background: #fff;padding: 25px 42px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s; border-bottom: 3px solid #fff;}
 .services_two i {color: #222222; font-size: 65px; margin-bottom: 25px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s;}
@@ -3776,7 +3773,7 @@ footer p { color: #cccccc; line-height: 80px;}
 .service .imgs img{-ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s; }
 
 .service:hover .imgs img{transform: rotateY(180deg); }
-.service_content { position: absolute; top: 0px; left: 0px; width: 100%; height: 99%; background: #fff; padding: 30px 20px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s;  border: 2px dotted #adb02f;}
+.service_content { width: 100%; background: #fff; padding: 30px 20px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s;  border: 2px dotted #adb02f;}
 
 .service .icon {transform-style: preserve-3d;transition: all 1.0s linear;}
 .service:hover .icon {transform: rotateY(180deg);}
@@ -3788,8 +3785,6 @@ footer p { color: #cccccc; line-height: 80px;}
 .service_content p { margin-bottom: 20px; -ms-transition: all .8s;  -o-transition: all .8s; text-align: justify; transition: all .8s; }
 .service_content a { color: #7da500; font-weight: bold; font-size: 12px; text-transform: uppercase; }
 
-.service:hover .service_content { background: rgba(0,0,0,.7); }
-.service:hover .service_content h3, .service:hover .service_content p, .service:hover .service_content span { color: #fff; }
 
 .services_two {text-align: center; background: #fff;padding: 25px 42px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s; border-bottom: 3px solid #fff;}
 .services_two i {color: #222222; font-size: 65px; margin-bottom: 25px; -ms-transition: all .8s;  -o-transition: all .8s;  transition: all .8s;}

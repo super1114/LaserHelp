@@ -190,7 +190,7 @@ hr {margin: 50px 0;}
 .top_bar p {color: #fff; display: inline-block; margin-right: 20px;}
 .top_bar p i{margin-right: 6px;}
 
-.top_bar .top_btn {font: 700 16px 'Open Sans', arial, sans-serif; color: #fff; line-height: normal; background: #6e9100; border-bottom: 3px solid #222222; margin-right: 40px; padding: 14px 10px; display: inline-block;-ms-transition: all 0s;  -o-transition: all 0s;  transition: all 0s;}
+.top_bar .top_btn {font: 700 16px 'Open Sans', arial, sans-serif; color: #fff; line-height: normal; background: #6e9100; margin-right: 40px; padding: 14px 10px; display: inline-block;-ms-transition: all 0s;  -o-transition: all 0s;  transition: all 0s;}
 .top_bar .social_icons { display: inline-block; }
 .top_bar .social_icons a {width: 30px; height: 30px; display: inline-block; line-height: 26px; margin-right: 5px; border: 2px solid #fff; border-radius: 50%; text-align: center;}
 .top_bar .social_icons a i {color: #fff;}

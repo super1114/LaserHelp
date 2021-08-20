@@ -97,10 +97,10 @@
                             @if (Route::has('login'))
                             <div class="col-sm-12 col-md-12 col-lg-8 text-right">                            
                             @auth
-                                <a href="{{ url('/home') }}" class="top_btn active_top_btn" >Submit a Question</a>
-                                <a href="{{ url('/home') }}" class="top_btn">My Account</a>
-                                <a href="{{ url('/home') }}" class="top_btn">My Questions</a>
-                                <a href="{{ url('/home') }}" class="top_btn">Become a LaserHelp Expert</a>                                
+                                <a href="{{ route('providers') }}" class="top_btn active_top_btn" >Get Clients</a>
+                                <a href="{{ route('providers') }}" class="top_btn">Help Your Clients</a>
+                                <a href="{{ route('providers') }}" class="top_btn">My Accounts</a>
+                                <a href="{{ route('providers') }}" class="top_btn">Become a LaserHelp Expert</a>                                
                             @else
                                 <a href="{{ route('login') }}" class="top_btn">Sign In</a>
                             @endauth

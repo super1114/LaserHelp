@@ -14,3 +14,7 @@
 .switch_btn_active:hover {
   background: #1d8000;
 }
+.service_content {
+  height: auto !important; 
+  border-radius: 15px !important;
+}

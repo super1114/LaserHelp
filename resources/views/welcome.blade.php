@@ -101,7 +101,7 @@
                                 <nav>
                                     <ul>
                                         <li>
-                                            <a href="{{route('customers')}}" class="active">Submit a Question</a>
+                                            <a href="{{route('welcome')}}" class="active">Submit a Question</a>
                                         </li>
                                         <li >
                                             <a href="{{route('providers')}}">Become a LaserHelp Expert</a>
@@ -169,6 +169,7 @@
                                         <span style="color: #7da500; cursor: pointer;" class="heading_small" id="attach_file">Attach file</span>
                                     </div>
                                     <input type="file" name="file" id="file" style="display: none;">
+                                    <input type="text" name="categories" id="categories" style="display: none;">
                                     <div class="col-sm-12 col-md-12">
                                         <span style="color: #fff; cursor: pointer;" class="heading_small" id="selected_files"></span>
                                     </div>
@@ -176,12 +177,12 @@
                                         <span class="heading_small">Select all niches that apply</span>
                                     </div>
                                     <div class="col-sm-12 col-md-12 mt-2 niches_container" style="display:flex;">
-                                        <button type="button" class="niche">VFX</button>
-                                        <button type="button" class="niche">Code</button>
-                                        <button type="button" class="niche">Programming</button>
-                                        <button type="button" class="niche">Blender</button>
-                                        <button type="button" class="niche">After Effect</button>
-                                        <button type="button" class="niche">Photoshop</button>
+                                        <button type="button" class="niche" data-id="1">VFX</button>
+                                        <button type="button" class="niche" data-id="2">Code</button>
+                                        <button type="button" class="niche" data-id="3">Programming</button>
+                                        <button type="button" class="niche" data-id="4">Blender</button>
+                                        <button type="button" class="niche" data-id="5">After Effect</button>
+                                        <button type="button" class="niche" data-id="6">Photoshop</button>
                                     </div>
                                     <div class="col-sm-4 col-md-4"></div>
                                     <div class="col-sm-4 col-md-6 mt-4">
@@ -261,7 +262,12 @@
             </div>
         </footer>
         <a href="#0" class="cd-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
+        
+        <script type="text/javascript">
+            var register_link = "{{ route('register') }}";
+        </script>
         <!-- jQuery -->
+
         <script src="{{ asset('assets/js/jquery.js') }}"></script>
         <!-- Bootstrap -->
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
