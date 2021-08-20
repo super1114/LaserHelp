@@ -20,3 +20,9 @@ button.niche {
 button.niche:hover {
     background: #444;
 }
+button.active_niche {
+    background-color: rgb(17, 158, 56, 1.0);
+}
+button.active_niche:hover {
+    background: rgb(17, 158, 56, 0.6);
+}

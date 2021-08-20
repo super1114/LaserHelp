@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <title>Customer:Laser Help</title>
+        <title>Customer | Laser Help</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -156,16 +156,21 @@
                                     <h2 class="heading_a">Get Instant Quote</h2>
                                     <h5 class="heading_small">Use <a href="https://www.loom.com" target="_blank" style="color:#7da500">Loom</a> to screencapture your question</h5>
                                 </div>
-                                <form action="" method="post" id="quote_form" class="row">
+                                <form action="{{route('submit_question')}}" method="post" id="queston_form" class="row">
+                                    @csrf
                                     <div class="col-sm-12 col-md-12">
-                                        <input type="text" class="form-control" placeholder="Paste a link to your loom recordig here" name="get"  />
+                                        <input type="text" class="form-control" placeholder="Paste a link to your loom recordig here" name="loom" id="loom" />
                                     </div>
                                     
                                     <div class="col-sm-12 col-md-12">
                                         <textarea name="question" placeholder="How can we help?" class="form-control" id="question" rows="7"></textarea>
                                     </div>
                                     <div class="col-sm-12 col-md-12">
-                                        <span style="color: #7da500; cursor: pointer;" class="heading_small">Attach file</span>
+                                        <span style="color: #7da500; cursor: pointer;" class="heading_small" id="attach_file">Attach file</span>
+                                    </div>
+                                    <input type="file" name="file" id="file" style="display: none;">
+                                    <div class="col-sm-12 col-md-12">
+                                        <span style="color: #fff; cursor: pointer;" class="heading_small" id="selected_files"></span>
                                     </div>
                                     <div class="col-sm-12 col-md-12 text-center">
                                         <span class="heading_small">Select all niches that apply</span>
@@ -180,7 +185,7 @@
                                     </div>
                                     <div class="col-sm-4 col-md-4"></div>
                                     <div class="col-sm-4 col-md-6 mt-4">
-                                        <input type="submit" class="button" value="Submit Question" name="get" id="get_quote" />
+                                        <input type="submit" class="button" value="Submit Question" id="submit_btn" />
                                     </div>
                                 </form>
                             </div>
@@ -194,7 +199,7 @@
         <div class="news_wrap seaction_margin">
             <div class="container">
                 <div class="heading_wrap">
-                    <h2 class="heading_a">Our <span>Providers</span></h2>
+                    <h2 class="heading_a">Our <span>Experts</span></h2>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-4 col-lg-4 animated slide">
@@ -276,6 +281,7 @@
         <script src="{{ asset('assets/js/jquery.appear.js') }}"></script>
         <!-- Custom -->
         <script src="{{ asset('assets/js/custom.js') }}"></script>
+        <script src="{{ asset('js/me.js') }}"></script>
 
         
     </body>

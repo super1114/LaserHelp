@@ -20,7 +20,7 @@ Route::get('/', function () {
 Route::group(['middleware' => ['auth']],function(){
     Route::get('customer', 'CustomerController@index')->name("customers");
 });
-
+Route::post('submit_question', 'CustomerController@submit_question')->name('submit_question');
 Route::get('customer/login', 'CustomerController@login')->name("customer_login");
 Route::get('customer/register', 'CustomerController@register')->name("customer_register");
 
