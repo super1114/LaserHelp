@@ -15,7 +15,7 @@ class CustomerController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('customer_auth');
+        
     }
 
     /**
@@ -44,7 +44,9 @@ class CustomerController extends Controller
         if($request->hasFile("file")) {
             $file = $request->file('file');
             $name = time() . str_random(5) . '.' . $file->getClientOriginalExtension();
-            Storage::disk('public')->put("attached_files", $file);
+            $request->file('file')->storeAs(
+                'public', $name, 
+            );
             $record->attached_file = $name;
         }
 

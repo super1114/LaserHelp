@@ -45,7 +45,7 @@ $(document).ready(function(){
                 if(data.user_id==0){
                 	document.location = register_link+"?question="+data.question_id;
                 } else {
-                	console.log("OOOKKK");
+                	document.location = myquestions_link;
                 }
             },
             error: function (e) {
@@ -53,5 +53,8 @@ $(document).ready(function(){
 
             }
         });
+	});
+	$(".become_expert").on("click", function(e){
+		document.location = become_expert;
 	})
 })

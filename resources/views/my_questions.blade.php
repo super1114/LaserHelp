@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <title>Customer:Laser Help</title>
+        <title>My Questions | Laser Help</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -100,7 +100,12 @@
                                 <a href="{{ route('home') }}" class="top_btn" >Submit a Question</a>
                                 <a href="{{ route('my_account') }}" class="top_btn">My Account</a>
                                 <a href="{{ route('my_questions') }}" class="top_btn active_top_btn">My Questions</a>
+                                @if(Auth::user()->type==1)
                                 <a href="{{ route('providers') }}" class="top_btn">Become a LaserHelp Expert</a>                                
+                                @else
+                                <a href="{{ route('get_clients') }}" class="top_btn active_top_btn">Get Clients</a>                                
+                                <a href="{{ route('help_clients') }}" class="top_btn">Help Your Clients</a>                                
+                                @endif
                                 
                             </div>
                         </div>
@@ -117,12 +122,15 @@
             </div>
             <div class="responsive_nav collapse navbar-collapse" id="navbarToggleExternalContent">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{route('home')}}">Home</a></li>
-                    <li><a href="{{route('customers')}}">Submit Question</a></li>
-                    <li><a href="{{route('providers')}}">Screenshare</a></li>
-                    <li><a href="{{route('providers')}}">My profile</a></li>
-                    <li><a href="">Billing account</a></li>
-                    <li><a href="{{route('providers')}}">Logout</a></li>
+                    <li><a href="{{route('home')}}">Submit Question</a></li>
+                    <li><a href="{{route('my_account')}}">My Account</a></li>
+                    <li><a href="{{route('my_questions')}}">My Questions</a></li>
+                    @if(Auth::user()->type==1)
+                    <a href="{{ route('providers') }}" class="top_btn">Become a LaserHelp Expert</a>                                
+                    @else
+                    <a href="{{ route('get_clients') }}" class="top_btn active_top_btn">Get Clients</a>                                
+                    <a href="{{ route('help_clients') }}" class="top_btn">Help Your Clients</a>                                
+                    @endif
                 </ul>
             </div>
         </div>
@@ -142,8 +150,11 @@
                                     <div class="col-sm-12 col-md-12">
                                         <p>
                                             {{$question->question}}
+                                            <a class="float-right" style="text-transform:lowercase;">{{str_replace('before','ago',$question->diffTime())}}</a>
                                         </p>
-                                        <a href="{{$question->loom}}">Loom screen capture link</a>
+                                        <a href="{{$question->loom}}" style="text-transform:capitalize" target="_blank">Loom screen capture link</a>
+                                        <a target="_blank" class="float-right" style="text-transform:capitalize;" href="{{route('download_attach', ['question_id'=>$question->id])}}">1 Attached Files</a>
+                                        
                                     </div>
                                 </div>
                             </div>

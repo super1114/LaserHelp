@@ -100,8 +100,12 @@
                                 <a href="{{ route('home') }}" class="top_btn active_top_btn" >Submit a Question</a>
                                 <a href="{{ route('my_account') }}" class="top_btn">My Account</a>
                                 <a href="{{ route('my_questions') }}" class="top_btn">My Questions</a>
+                                @if(Auth::user()->type==1)
                                 <a href="{{ route('providers') }}" class="top_btn">Become a LaserHelp Expert</a>                                
-                                
+                                @else
+                                <a href="{{ route('get_clients') }}" class="top_btn">Get Clients</a>                                
+                                <a href="{{ route('help_clients') }}" class="top_btn">Help Your Clients</a>                                
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -183,7 +187,7 @@
         <div class="news_wrap seaction_margin">
             <div class="container">
                 <div class="heading_wrap">
-                    <h2 class="heading_a">Our <span>Providers</span></h2>
+                    <h2 class="heading_a">Our <span>Experts</span></h2>
                 </div>
                 <div class="row">
                     <div class="col-sm-12 col-md-4 col-lg-4 animated slide">

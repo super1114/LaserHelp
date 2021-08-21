@@ -94,7 +94,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-3 col-lg-3 col-xs-12">
                                 <div class="logo">
-                                    <a href=""><h2 class="heading_a">Laser <span>Help</span></h2></a>
+                                    <a href=""><img src="{{asset('2.png')}}" style="height: 75%;width: 75%;"></a>
                                 </div>
                             </div>
                             <div class="col-sm-7 col-md-9 col-lg-9 text-right">
@@ -265,6 +265,7 @@
         
         <script type="text/javascript">
             var register_link = "{{ route('register') }}";
+            var myquestions_link = "{{ route('my_questions') }}";
         </script>
         <!-- jQuery -->
 

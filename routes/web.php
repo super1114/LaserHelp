@@ -33,9 +33,15 @@ Route::post('submit_question', 'CustomerController@submit_question')->name('subm
 Route::get('customer/login', 'CustomerController@login')->name("customer_login");
 Route::get('my_questions', 'QuestionController@my_questions')->name("my_questions");
 Route::get('my_account', 'AccountController@my_account')->name("my_account");
+Route::get('download/{question_id}', 'QuestionController@download_attach')->name("download_attach");
+Route::get('become_expert', 'ProviderController@become_expert')->name("become_expert");
+Route::get('get_clients', 'ProviderController@get_clients')->name("get_clients");
+Route::get('help_clients', 'ProviderController@help_clients')->name("help_clients");
+
 Route::get('customer/register', 'CustomerController@register')->name("customer_register");
 
-Route::group(['middleware' => ['provider_auth']],function(){
+
+Route::group(['middleware' => ['auth']],function(){
     Route::get('provider', 'ProviderController@index')->name("providers");
 });
 Route::get('provider/login', 'ProviderController@login')->name("provider_login");

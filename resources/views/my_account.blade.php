@@ -98,9 +98,9 @@
                             
                             <div class="col-sm-12 col-md-12 col-lg-9 text-right">                            
                                 <a href="{{ route('home') }}" class="top_btn" >Submit a Question</a>
-                                <a href="{{ route('my_account') }}" class="top_btn">My Account</a>
+                                <a href="{{ route('my_account') }}" class="top_btn active_top_btn">My Account</a>
                                 <a href="{{ route('my_questions') }}" class="top_btn">My Questions</a>
-                                <a href="{{ route('providers') }}" class="top_btn active_top_btn">Become a LaserHelp Expert</a>                                
+                                <a href="{{ route('providers') }}" class="top_btn">Become a LaserHelp Expert</a>                                
                                 
                             </div>
                         </div>
@@ -129,11 +129,9 @@
         <div class="services_wrap seaction_margin" style="padding-bottom: 500px; padding-top: 60px;">
             <div class="container">
                 <div class="heading_wrap" style="margin-bottom:20px">
-                    <h2 class="heading_a">Become a LaserHelp <span>Expert</span></h2>
+                    <h2 class="heading_a">My <span>Account</span></h2>
                 </div>
-                <div class="heading_wrap" style="margin-top:100px; margin-bottom:20px; display:flex; justify-content:center;">
-                    <button type="button" class="button become_expert"><span>Become an expert</span></button>
-                </div>
+                
             </div>
         </div>
         <!--End Services-->
@@ -151,9 +149,6 @@
         </footer>
         <a href="#0" class="cd-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
         <!-- jQuery -->
-        <script type="text/javascript">
-            var become_expert = "{{route('become_expert')}}";
-        </script>
         <script src="{{ asset('assets/js/jquery.js') }}"></script>
         <!-- Bootstrap -->
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

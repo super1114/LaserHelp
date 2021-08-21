@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
-        <title>My Account | Laser Help</title>
+        <title>Find Clients | Laser Help</title>
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -100,8 +100,12 @@
                                 <a href="{{ route('home') }}" class="top_btn" >Submit a Question</a>
                                 <a href="{{ route('my_account') }}" class="top_btn">My Account</a>
                                 <a href="{{ route('my_questions') }}" class="top_btn">My Questions</a>
-                                <a href="{{ route('providers') }}" class="top_btn active_top_btn">Become a LaserHelp Expert</a>                                
-                                
+                                @if(Auth::user()->type==1)
+                                <a href="{{ route('providers') }}" class="top_btn">Become a LaserHelp Expert</a>                                
+                                @else
+                                <a href="{{ route('get_clients') }}" class="top_btn active_top_btn">Get Clients</a>                                
+                                <a href="{{ route('help_clients') }}" class="top_btn">Help Your Clients</a>                                
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -129,10 +133,30 @@
         <div class="services_wrap seaction_margin" style="padding-bottom: 500px; padding-top: 60px;">
             <div class="container">
                 <div class="heading_wrap" style="margin-bottom:20px">
-                    <h2 class="heading_a">Become a LaserHelp <span>Expert</span></h2>
+                    <h2 class="heading_a">Find <span>Clients</span></h2>
                 </div>
-                <div class="heading_wrap" style="margin-top:100px; margin-bottom:20px; display:flex; justify-content:center;">
-                    <button type="button" class="button become_expert"><span>Become an expert</span></button>
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 ">
+                        <div class="service">
+                            @forelse($questions as $question)
+                            <div class="service_content mt-3">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <p>
+                                            {{$question->question}}
+                                            <a class="float-right" style="text-transform:lowercase;">{{str_replace('before','ago',$question->diffTime())}}</a>
+                                        </p>
+                                        <a href="{{$question->loom}}" style="text-transform:capitalize" target="_blank">Loom screen capture link</a>
+                                        <a target="_blank" class="float-right" style="text-transform:capitalize;" href="{{route('download_attach', ['question_id'=>$question->id])}}">1 Attached Files</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            @empty
+                            <h3 class="text-center">You didn't submit any questions</h3>
+                            @endforelse
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -151,9 +175,6 @@
         </footer>
         <a href="#0" class="cd-top"><i class="fa fa-angle-up" aria-hidden="true"></i></a>
         <!-- jQuery -->
-        <script type="text/javascript">
-            var become_expert = "{{route('become_expert')}}";
-        </script>
         <script src="{{ asset('assets/js/jquery.js') }}"></script>
         <!-- Bootstrap -->
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

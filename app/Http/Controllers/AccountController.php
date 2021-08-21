@@ -17,5 +17,8 @@ class AccountController extends Controller
     {
         
     }
+    public function my_account(){
+        return view("my_account");
+    }
     
 }
