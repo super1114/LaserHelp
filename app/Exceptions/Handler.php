@@ -2,8 +2,9 @@
 
 namespace App\Exceptions;
 
-use Exception;
+use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Throwable;
 
 class Handler extends ExceptionHandler
 {
@@ -27,25 +28,34 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Report or log an exception.
+     * Convert an authentication exception into a response.
      *
-     * @param  \Exception  $exception
-     * @return void
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @return \Illuminate\Http\Response
      */
-    public function report(Exception $exception)
+    protected function unauthenticated($request, AuthenticationException $exception)
     {
-        parent::report($exception);
+        return $request->expectsJson()
+                    ? response()->json(['message' => $exception->getMessage()], 401)
+                    : redirect()->guest(url('/login'));
     }
 
     /**
-     * Render an exception into an HTTP response.
+     * Prepare a JSON response for the given exception.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Exception  $exception
-     * @return \Illuminate\Http\Response
+     * @param  \Throwable  $e
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function render($request, Exception $exception)
+    protected function prepareJsonResponse($request, Throwable $e)
     {
-        return parent::render($request, $exception);
+        $response = parent::prepareJsonResponse($request, $e);
+
+        if ($response->getStatusCode() === 500 && config('app.debug')) {
+            return $this->prepareResponse($request, $e);
+        }
+
+        return $response;
     }
 }
