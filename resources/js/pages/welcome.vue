@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header />
+    <Header active_class='question'/>
     <responsive-nav />
     <quote />
     <Footer />

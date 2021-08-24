@@ -137,7 +137,7 @@ hr {margin: 50px 0;}
     .cd-top i {  color: #fff;  font-size: 30px;  vertical-align: -4px;  }
     .cd-top.cd-is-visible:hover { opacity: 1; }
     .seaction_margin { margin-bottom: 98px; }
-    .layer {background: #eee;}
+    .layer {background: #ddd;}
     .home-5.cd-is-visible:hover { opacity: 1; background:  #adb02f}
 
 
@@ -899,8 +899,8 @@ article.single .cate div{ font: 700 12px 'open sans', arial, sans-serif; line-he
 .footer_widget ul li a{ color: #cccccc; padding-left: 25px;  background: url("../images/fot_icon.png") no-repeat left center; }
 .footer_widget ul li a:hover{ color: #7da500;}
 
-footer {background: #000000; height: 80px; line-height: 80px;}
-footer p { color: #cccccc; line-height: 80px;}
+footer {background: #ffffff; height: 80px; line-height: 80px;}
+footer p { color: #111111; line-height: 80px;}
 
 .social_icon a {color: #fff; background: #444444; width: 30px; height: 30px; line-height: 30px; text-align: center; display: inline-block; border-radius: 50%; margin-left:5px;}
 .social_icon a:hover { background: #7da500; color: #000;}

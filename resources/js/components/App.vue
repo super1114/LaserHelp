@@ -31,7 +31,9 @@ export default {
   },
 
   methods: {
-    
+    showAlert(msg){
+      console.log(msg);
+    }
   }
 }
 </script>

@@ -70,3 +70,20 @@ button.active_niche:hover {
 .c_yellow {
     color: #F9C346;
 }
+.b_green {
+  background-color: #2EB67D;
+}
+.b_red {
+  background-color: #DB183F;
+}
+.b_blue {
+  background-color: #36A7F0;
+}
+.b_yellow {
+  background-color: #F9C346;
+}
+.login_form_wrap,.register_form_wrap{
+  height: 800px;
+  padding: 150px 0px;
+  background-color: #ddd;
+}

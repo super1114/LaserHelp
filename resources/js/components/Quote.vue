@@ -11,12 +11,12 @@
                                 <h5 class="heading_small">Use <a href="https://www.loom.com" target="_blank" style="color:#2EB67D">Loom</a> to screencapture your question</h5>
                             </div>
                             <form action="" method="post" id="queston_form" class="row">
+                                <input type="file" ref="file" style="display:none"/>
                                 <div class="col-sm-12 col-md-12">
-                                    <input type="text" class="form-control" placeholder="Paste a link to your loom recordig here" name="loom" id="loom" />
+                                    <input type="text" class="form-control" placeholder="Paste a link to your loom recordig here" name="loom" v-model="loom" />
                                 </div>
-                                
                                 <div class="col-sm-12 col-md-12">
-                                    <textarea name="question" placeholder="How can we help?" class="form-control" id="question" rows="7"></textarea>
+                                    <textarea name="question" placeholder="How can we help?" class="form-control" id="question" rows="7" v-model="question"></textarea>
                                 </div>
                                 <div class="col-sm-12 col-md-12">
                                     <span style="color: #2EB67D; cursor: pointer;" class="heading_small" id="attach_file">Attach file</span>
@@ -39,7 +39,7 @@
                                 </div>
                                 <div class="col-sm-4 col-md-4"></div>
                                 <div class="col-sm-4 col-md-6 mt-4">
-                                    <input type="submit" class="button" value="Submit Question" id="submit_btn" />
+                                    <button type="button" class="button b_green" @click="submitQuestion">Submit Question</button>
                                 </div>
                             </form>
                         </div>
@@ -52,8 +52,21 @@
 </template>
 
 <script>
-export default {
-    name:"Quote"
+export default {  
+    name:"Quote",
+    data(){
+        return {
+            loom:"",
+            question:""
+        }
+    },
+    methods:{
+        submitQuestion(){
+            if(this.question==""){
+                this.showAlert("ssssss");
+            }
+        }
+    }
 }
 </script>
 

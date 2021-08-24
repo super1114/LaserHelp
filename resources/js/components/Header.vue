@@ -12,13 +12,13 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <router-link :to="{name: ''}" class="active">Submit a Question</router-link>
+                                    <router-link :to="{name: 'welcome'}" :class="[active_class=='question'?'active':'']">Submit a Question</router-link>
                                 </li>
                                 <li >
-                                    <router-link :to="{name: 'expert'}">Become a LaserHelp Expert</router-link>
+                                    <router-link :to="{name: 'expert'}" :class="[active_class=='expert'?'active':'']">Become a LaserHelp Expert</router-link>
                                 </li>
                                 <li >
-                                    <a href="" class="">Logout</a>
+                                    <router-link :to="{name: 'login'}" :class="[active_class=='login'?'active':'']">Login</router-link>
                                 </li>
                             </ul>
                         </nav>
@@ -31,7 +31,10 @@
 
 <script>
 export default {
-    name:'Header'
+    name:'Header',
+    props:{
+        active_class:String
+    }
 }
 </script>
 
