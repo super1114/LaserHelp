@@ -17,9 +17,7 @@
                                 <div class="col-sm-12 col-md-12">
                                     <input type="text" class="form-control" placeholder="Password" name="loom" />
                                 </div>
-                                <div class="col-sm-12 col-md-12">
-                                    <span style="color: #2EB67D; cursor: pointer;" class="heading_small" id="attach_file">Attach file</span>
-                                </div>
+                                
                                 
                                 <div class="col-sm-4 col-md-3"></div>
                                 <div class="col-sm-4 col-md-6 mt-4">

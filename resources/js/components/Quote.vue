@@ -11,7 +11,7 @@
                                 <h5 class="heading_small">Use <a href="https://www.loom.com" target="_blank" style="color:#2EB67D">Loom</a> to screencapture your question</h5>
                             </div>
                             <form action="" method="post" id="queston_form" class="row">
-                                <input type="file" ref="file" style="display:none"/>
+                                <input type="file" ref="file" style="display:none" @change="fileChange" />
                                 <div class="col-sm-12 col-md-12">
                                     <input type="text" class="form-control" placeholder="Paste a link to your loom recordig here" name="loom" v-model="loom" />
                                 </div>
@@ -19,15 +19,12 @@
                                     <textarea name="question" placeholder="How can we help?" class="form-control" id="question" rows="7" v-model="question"></textarea>
                                 </div>
                                 <div class="col-sm-12 col-md-12">
-                                    <span style="color: #2EB67D; cursor: pointer;" class="heading_small" id="attach_file">Attach file</span>
+                                    <span style="color: #2EB67D; cursor: pointer;" class="heading_small" @click="attachFile">Attach file</span>
+                                    <span style="color: #111;" class="heading_small float-right" v-bind:style="{margin:'0px', 'margin-right':'5px'}" >{{this.fileName}}</span>
                                 </div>
-                                <input type="file" name="file" id="file" style="display: none;">
                                 <input type="text" name="categories" id="categories" style="display: none;">
-                                <div class="col-sm-12 col-md-12">
-                                    <span style="color: #fff; cursor: pointer;" class="heading_small" id="selected_files"></span>
-                                </div>
                                 <div class="col-sm-12 col-md-12 text-center">
-                                    <span class="heading_small">Select all niches that apply</span>
+                                    <span class="heading_small mt-4">Select all niches that apply</span>
                                 </div>
                                 <div class="col-sm-12 col-md-12 mt-2 niches_container" style="display:flex;">
                                     <button type="button" class="niche" data-id="1">VFX</button>
@@ -57,14 +54,23 @@ export default {
     data(){
         return {
             loom:"",
-            question:""
+            question:"",
+            fileName:"",
         }
     },
     methods:{
+        fileChange(){
+            this.fileName = this.$refs.file.files[0].name;
+            this.$store.state.submit_question.file = this.$refs.file.files[0];
+        },
+        attachFile(){
+            this.$refs.file.click();
+        },
         submitQuestion(){
-            if(this.question==""){
-                this.showAlert("ssssss");
-            }
+            this.$store.dispatch("submit_question/submitQuestion", {
+                loom:this.loom,
+                question:this.question
+            });
         }
     }
 }

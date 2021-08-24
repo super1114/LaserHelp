@@ -24,10 +24,11 @@ export const mutations = {
 export const actions = {
     async submitQuestion({ commit, state }, payload) {
         let formdata = new FormData();
-        let loom = this.getters["submit_question/loom"];
-        formdata.append("loom", loom);
+        formdata.append("loom", payload.loom);
+        formdata.append("question", payload.question);
+        formdata.append("file", this.getters["submit_question/file"]);
         try {
-            const { data } = await axios.post("/api/"+project.id+"/uploadResource",
+            const { data } = await axios.post("/api/submit_question",
                 formdata,
                 {
                     headers: {
