@@ -29,7 +29,9 @@ export default {
   mounted () {
     this.$loading = this.$refs.loading
   },
-
+  async beforeMount(){
+    await this.$store.dispatch("auth/fetchUser");
+  },
   methods: {
     showAlert(msg){
       console.log(msg);

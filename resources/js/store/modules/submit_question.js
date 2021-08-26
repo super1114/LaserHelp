@@ -5,6 +5,7 @@ import * as types from '../mutation-types'
 export const state = {
     loom:"",
     question: "",
+    categories:"",
     file:{}
 }
 
@@ -15,17 +16,24 @@ export const getters = {
 }
 
 export const mutations = {
-    [types.FETCH_PROJECT_SUCCESS] (state, { project }) {
-        console.log(project);
-        state.project = project
+    [types.SAVE_QUOTE_TEMP] (state, { payload }) {
+        console.log(payload);
+        state.loom = payload.loom;
+        state.question = payload.question;
+        state.categories = payload.categories;
+        state.file = payload.file;
     },
 }
 
 export const actions = {
     async submitQuestion({ commit, state }, payload) {
+        console.log(payload);
+        const user = this.getters["auth/user"];
+        const router = payload.router;
         let formdata = new FormData();
         formdata.append("loom", payload.loom);
         formdata.append("question", payload.question);
+        formdata.append("categories", payload.categories);
         formdata.append("file", this.getters["submit_question/file"]);
         try {
             const { data } = await axios.post("/api/submit_question",
@@ -36,10 +44,13 @@ export const actions = {
                     }
                 }
             )
-            commit(types.UPLOAD_RESOURCE_SUCCESS, {resource : data.resource});
         } catch (e) {
-            commit(types.UPLOAD_RESOURCE_FAILED);
+            
         }
-        
+        if(user==null){
+            commit(types.SAVE_QUOTE_TEMP, { payload:payload })
+            router.push("/register");
+            return;
+        }
     },
 }

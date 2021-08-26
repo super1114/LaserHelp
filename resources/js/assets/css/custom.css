@@ -34,9 +34,8 @@ div.niches_container {
     overflow: hidden;
 }
 button.niche {
-    height: 40px;
     border: 0px;
-    padding: 10px;
+    padding: 7px 10px;
     outline: none;
     margin-right: 10px;
     color: white;
@@ -45,7 +44,6 @@ button.niche {
 }
 button.niche:hover {
     background: #1E85AC;
-;
 }
 button.active_niche {
     background-color: rgb(17, 158, 56, 1.0);
@@ -86,4 +84,14 @@ button.active_niche:hover {
   height: 800px;
   padding: 150px 0px;
   background-color: #ddd;
+}
+.w-full {
+  width: 100%;
+}
+.small-btn {
+  padding: 7px 10px;
+}
+.small-btn:hover {
+  background-color: #4Ed69D;
+  color: white;
 }

@@ -183,6 +183,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Lakshmaji\Thumbnail\ThumbnailServiceProvider::class,
+        'Tymon\JWTAuth\Providers\LaravelServiceProvider',
 
     ],
 
@@ -237,6 +238,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Carbon' => 'Carbon\Carbon',
         'Thumbnail' => Lakshmaji\Thumbnail\Facade\Thumbnail::class,
+        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
     ],
 
 ];

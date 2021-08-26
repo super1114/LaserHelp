@@ -47,8 +47,9 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //dd($data);
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'username' => 'required|max:255',
             'email' => 'required|email:filter|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -63,11 +64,34 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
+            'username' => $data['name'],
             'email' => $data['email'],
-            'password' => bcrypt($data['password']),
-            'phone' => $data["phone"],
-            'address' => $data["address"]
+            'password' => bcrypt($data['password'])
+        ]);
+    }
+
+    public function regUser(Request $request) {
+        $data = $request->only('username', 'email', 'password');
+        $validator = Validator::make($data, [
+            'username' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:6|max:50'
+        ]);
+
+        //Send failed response if request is not valid
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->messages()], 200);
+        }
+        $user = User::create([
+        	'username' => $request->username,
+        	'email' => $request->email,
+        	'password' => bcrypt($request->password),
+            'user_type' => 1
+        ]);
+        return response()->json([
+            'success' => true,
+            'message' => 'User created successfully',
+            'data' => $user
         ]);
     }
 }

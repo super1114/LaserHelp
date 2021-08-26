@@ -15,9 +15,11 @@ class QuestionController extends Controller
     public function submit_question(Request $request) {
         $loom = $request->loom;
         $question = $request->question;
+        $categories = $request->categories;
         $record = new Question;
         $record->loom = $loom;
         $record->question = $question;
+        $record->categories = $categories;
         if($request->hasFile('file')){
             $file = $request->file('file');
             $name = time() . str_random(5) . '.' . $file->getClientOriginalExtension();

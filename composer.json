@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.6",
         "laravel/ui": "^3.2",
         "php-ffmpeg/php-ffmpeg": "^0.18.0",
-        "tymon/jwt-auth": "^1.0.2"
+        "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {
         "doctrine/dbal": "^2.12",

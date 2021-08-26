@@ -9,25 +9,20 @@
                             <div class="heading_wrap" style="margin-bottom: 10px;">
                                 <h2 class="heading_a">Login</h2>
                             </div>
-                            <form action="" method="post" id="login_form" class="row mt-4">
-                                <div class="col-sm-12 col-md-12">
-                                    <input type="text" class="form-control" placeholder="Username" name="username" />
-                                </div>
-                                
-                                <div class="col-sm-12 col-md-12">
-                                    <input type="text" class="form-control" placeholder="Password" name="loom" />
-                                </div>
-                                
-                                
-                                <div class="col-sm-4 col-md-3"></div>
-                                <div class="col-sm-4 col-md-6 mt-4">
-                                    <button type="button c_green" class="button"  style="width:100%">Login</button>
-                                </div>
-                                <div class="col-sm-12 col-md-12 mt-4 text-center">
-                                    <span class="heading_small">Not a member?</span>
-                                    <router-link :to="{name:'register'}" class="heading_small">Sign up now</router-link>
-                                </div>
-                            </form>
+                            <div class="col-sm-12 col-md-12">
+                                <input type="email" class="form-control" placeholder="Email" v-model="email" />
+                            </div>
+                            
+                            <div class="col-sm-12 col-md-12">
+                                <input type="password" class="form-control" placeholder="Password" v-model="password"/>
+                            </div>
+                            <div class="col-sm-12 col-md-12 mt-4">
+                                <button type="button" class="button w-full small-btn" @click="login">Login</button>
+                            </div>
+                            <div class="col-sm-12 col-md-12 mt-4 text-center">
+                                <span class="heading_small">Not a member?</span>
+                                <router-link :to="{name:'register'}" class="heading_small">Sign up now</router-link>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-2 col-lg-3"></div>
@@ -39,7 +34,21 @@
 
 <script>
 export default {
-    name:"LoginForm"
+    name:"LoginForm",
+    data(){
+        return{
+            email:"",
+            password:""
+        }
+    },
+    methods:{
+        login(){
+            this.$store.dispatch("auth/loginUser",{
+                email:this.email,
+                password:this.password  
+            })
+        }
+    }
 }
 </script>
 

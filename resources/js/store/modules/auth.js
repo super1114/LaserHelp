@@ -34,7 +34,6 @@ export const mutations = {
   [types.LOGOUT] (state) {
     state.user = null
     state.token = null
-
     Cookies.remove('token')
   },
 
@@ -52,7 +51,6 @@ export const actions = {
   async fetchUser ({ commit }) {
     try {
       const { data } = await axios.get('/api/user')
-
       commit(types.FETCH_USER_SUCCESS, { user: data })
     } catch (e) {
       commit(types.FETCH_USER_FAILURE)
@@ -75,5 +73,14 @@ export const actions = {
     const { data } = await axios.post(`/api/oauth/${provider}`)
 
     return data.url
+  },
+  async registerUser ({commit}, payload){
+    const { data } = await axios.post("/api/register",payload);
+    if(data.success){
+      
+    }
+  },
+  async loginUser ({commit}, payload){
+    const { data } = await axios.post("/api/login",payload);
   }
 }
