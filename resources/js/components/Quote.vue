@@ -27,12 +27,12 @@
                                     <span class="heading_small mt-4">Select all niches that apply</span>
                                 </div>
                                 <div class="col-sm-12 col-md-12 mt-2 niches_container" style="display:flex;">
-                                    <button type="button" class="niche" data-id="1">VFX</button>
-                                    <button type="button" class="niche" data-id="2">Code</button>
-                                    <button type="button" class="niche" data-id="3">Programming</button>
-                                    <button type="button" class="niche" data-id="4">Blender</button>
-                                    <button type="button" class="niche" data-id="5">After Effect</button>
-                                    <button type="button" class="niche" data-id="6">Photoshop</button>
+                                    <button type="button" class="niche" data-id="1" @click="categoryClick(1)">VFX</button>
+                                    <button type="button" class="niche" data-id="2" @click="categoryClick(2)">Code</button>
+                                    <button type="button" class="niche" data-id="3" @click="categoryClick(3)">Programming</button>
+                                    <button type="button" class="niche" data-id="4" @click="categoryClick(4)">Blender</button>
+                                    <button type="button" class="niche" data-id="5" @click="categoryClick(5)">After Effect</button>
+                                    <button type="button" class="niche" data-id="6" @click="categoryClick(6)">Photoshop</button>
                                 </div>
                                 <div class="col-sm-4 col-md-4"></div>
                                 <div class="col-sm-4 col-md-6 mt-4">
@@ -56,6 +56,7 @@ export default {
             loom:"",
             question:"",
             fileName:"",
+            categories:[]
         }
     },
     methods:{
@@ -70,6 +71,20 @@ export default {
             this.$store.dispatch("submit_question/submitQuestion", {
                 loom:this.loom,
                 question:this.question
+            });
+        },
+        categoryClick(category) {
+            console.log(this.categories);
+            if(this.categories.indexOf(category)==-1) {
+                this.categories.push(category);
+            } else {
+                this.arrayRemove(this.categories, category);
+            }
+            console.log(this.categories);
+        },
+        arrayRemove(arr, value) { 
+            return arr.filter(function(ele){ 
+                return ele != value; 
             });
         }
     }
