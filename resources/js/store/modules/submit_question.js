@@ -6,22 +6,20 @@ export const state = {
     loom:"",
     question: "",
     categories:"",
-    file:{}
+    file:{},
+    question_id:0
 }
 
 export const getters = {
-    project: state => state.loom,
+    loom: state => state.loom,
     question: state => state.question,
-    file: state => state.file
+    file: state => state.file,
+    question_id: state => state.question_id
 }
 
 export const mutations = {
     [types.SAVE_QUOTE_TEMP] (state, { payload }) {
-        console.log(payload);
-        state.loom = payload.loom;
-        state.question = payload.question;
-        state.categories = payload.categories;
-        state.file = payload.file;
+        state.question_id = payload;
     },
 }
 
@@ -44,13 +42,15 @@ export const actions = {
                     }
                 }
             )
+            console.log(data);
+            if(user==null){
+                commit(types.SAVE_QUOTE_TEMP, { payload:data.question_id })
+                router.push("/register");
+                return;
+            }
         } catch (e) {
-            
+            console.log(e);
         }
-        if(user==null){
-            commit(types.SAVE_QUOTE_TEMP, { payload:payload })
-            router.push("/register");
-            return;
-        }
+        
     },
 }

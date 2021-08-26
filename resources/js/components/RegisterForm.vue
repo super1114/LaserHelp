@@ -56,10 +56,12 @@ export default {
     },
     methods:{
         regUser(){
+            var question_id = this.$store.state.submit_question.question_id;
             this.$store.dispatch("auth/registerUser", {
                 username:this.username,
                 email:this.email,
-                password:this.password  
+                password:this.password,
+                question_id:question_id
             })
         }
     }

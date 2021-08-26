@@ -44,13 +44,9 @@ export const mutations = {
 
 // actions
 export const actions = {
-  saveToken ({ commit, dispatch }, payload) {
-    commit(types.SAVE_TOKEN, payload)
-  },
-
-  async fetchUser ({ commit }) {
+  async fetchUser ({ commit, state }) {
     try {
-      const { data } = await axios.get('/api/user')
+      const { data } = await axios.get('/api/user',{token:state.token})
       commit(types.FETCH_USER_SUCCESS, { user: data })
     } catch (e) {
       commit(types.FETCH_USER_FAILURE)
@@ -77,10 +73,13 @@ export const actions = {
   async registerUser ({commit}, payload){
     const { data } = await axios.post("/api/register",payload);
     if(data.success){
-      
+
     }
   },
   async loginUser ({commit}, payload){
     const { data } = await axios.post("/api/login",payload);
+    if(data.success) {
+      commit(types.SAVE_TOKEN, {token:data.token, remember:true});
+    }
   }
 }

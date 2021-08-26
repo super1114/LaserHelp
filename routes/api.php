@@ -29,8 +29,6 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => 'auth:api'], function () {
     Route::post('logout', [LoginController::class, 'logout']);
 
-    Route::get('user', [UserController::class, 'current']);
-
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
 
@@ -44,6 +42,7 @@ Route::group(['middleware' => 'auth:api'], function () {
 Route::group(['middleware' => 'guest:api'], function () {
     Route::post('login', [ApiController::class, 'login']);
     Route::post('register', [ApiController::class, 'register']);
+    Route::get('user', [ApiController::class, 'get_user']);
     Route::post('submit_question', [QuestionController::class, 'submit_question']);
 
     Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail']);

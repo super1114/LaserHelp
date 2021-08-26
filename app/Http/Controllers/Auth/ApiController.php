@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Question;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Symfony\Component\HttpFoundation\Response;
@@ -31,6 +32,11 @@ class ApiController extends Controller
         	'password' => bcrypt($request->password),
             'user_type' => 1
         ]);
+        if($request->question_id>0){
+            $question = Question::find($request->question_id);
+            $question->user_id = $user->id;
+            $question->save();
+        } 
         return response()->json([
             'success' => true,
             'message' => 'User created successfully',
@@ -72,5 +78,15 @@ class ApiController extends Controller
             'success' => true,
             'token' => $token,
         ]);
+    }
+    public function get_user(Request $request)
+    {
+        $this->validate($request, [
+            'token' => 'required'
+        ]);
+ 
+        $user = JWTAuth::authenticate($request->token);
+ 
+        return response()->json(['user' => $user]);
     }
 }

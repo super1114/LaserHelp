@@ -183,13 +183,13 @@ hr {margin: 50px 0;}
 .top_bar .social_icons a:hover {background: #fff;}
 .top_bar .social_icons a:hover i{color: #7da500;}
 
-.header_bottom {height: 80px; margin-bottom: 3px;}
+.header_bottom {height: 80px;}
 .header_bottom .logo{ line-height: 80px;}
 .logo img { vertical-align: middle;}
 
 nav ul li {display: inline-block; margin-left: 25px;}
 nav ul li a{font: 700 14px 'Open Sans', arial, sans-serif; display: block; color: #222222; text-transform: uppercase; line-height: 80px;}
-nav ul li a.active {color: #2EB67D;}
+nav ul li a.active {color: #2EB67D; border-bottom: 3px solid #2EB67D; height: 80px;}
 nav ul li a.active-2 {background: #6e9100;}
 .dropdown-toggle::after {display: none;}
 .welcom_wrap nav ul li a {color: #fff;}
