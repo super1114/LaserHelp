@@ -58,5 +58,7 @@ export default {
 </script>
 
 <style>
-
+    header {
+        background: white;
+    }
 </style>

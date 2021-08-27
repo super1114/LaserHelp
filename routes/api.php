@@ -32,22 +32,24 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
 
-    Route::post('create_project', [ProjectController::class, 'createProject']);
-    Route::get('{id}', [ProjectController::class, 'getProject']);
-    Route::get('{id}/resources', [ProjectController::class, 'getResources']);
-
-    Route::post('{id}/uploadResource', [ProjectController::class, 'uploadResource']);
 });
+
+Route::post('submit_question', [QuestionController::class, 'submit_question']);
 
 Route::group(['middleware' => 'guest:api'], function () {
     Route::post('login', [ApiController::class, 'login']);
     Route::post('register', [ApiController::class, 'register']);
-    Route::get('user', [ApiController::class, 'get_user']);
-    Route::post('submit_question', [QuestionController::class, 'submit_question']);
+    
+    
 
     Route::post('password/email', [ForgotPasswordController::class, 'sendResetLinkEmail']);
     Route::post('password/reset', [ResetPasswordController::class, 'reset']);
 
     Route::post('email/verify/{user}', [VerificationController::class, 'verify'])->name('verification.verify');
     Route::post('email/resend', [VerificationController::class, 'resend']);
+});
+Route::group(['middleware' => 'jwt.auth'], function () {
+    Route::post('get_user', [ApiController::class, 'get_user']);
+    Route::post('get_myquestions', [QuestionController::class, 'get_myquestions']);
+    Route::get('download/{id}', [QuestionController::class, 'download_file']);
 });

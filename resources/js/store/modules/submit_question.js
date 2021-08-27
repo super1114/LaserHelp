@@ -47,6 +47,8 @@ export const actions = {
                 commit(types.SAVE_QUOTE_TEMP, { payload:data.question_id })
                 router.push("/register");
                 return;
+            }else {
+                document.location = "/myquestions"
             }
         } catch (e) {
             console.log(e);

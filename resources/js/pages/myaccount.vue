@@ -1,14 +1,9 @@
 <template>
   <div class="content-wrapper">
-    <Header active_class='myquestions'/>
+    <Header active_class='myaccount'/>
     <responsive-nav />
     <div class="questions_layer">
-      <div v-if="questions.length>0" class="questions_container container">
-        <Question v-for="question in questions" :key="question.id" :question="question" />
-      </div>
-      <div v-else class="questions_container container">
-        <Question :noquetion="true"/>
-      </div>
+      
     </div>
     <Footer />
   </div>
@@ -24,7 +19,6 @@ export default {
   components:{
     Header,
     ResponsiveNav,
-    Question,
     Footer
   },
   metaInfo () {

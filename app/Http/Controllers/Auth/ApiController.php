@@ -72,7 +72,6 @@ class ApiController extends Controller
                 	'message' => 'Could not create token.',
                 ], 500);
         }
- 	
  		//Token created, return with success response and jwt token
         return response()->json([
             'success' => true,
@@ -84,9 +83,9 @@ class ApiController extends Controller
         $this->validate($request, [
             'token' => 'required'
         ]);
- 
+        
         $user = JWTAuth::authenticate($request->token);
- 
+        
         return response()->json(['user' => $user]);
     }
 }

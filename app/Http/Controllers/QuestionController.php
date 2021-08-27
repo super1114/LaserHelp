@@ -29,6 +29,7 @@ class QuestionController extends Controller
             $record->attached_file = $name;
         }
         if(Auth::user()){
+            $user = Auth::user();
             $record->user_id = $user->id;
             $record->save();
             return response()->json(["status"=>"success","msg"=>"Successfully submitted", "user_id"=>$user->id, "question_id"=>$record->id]);
@@ -36,5 +37,13 @@ class QuestionController extends Controller
             $record->save();
             return response()->json(["status"=>"success","msg"=>"Successfully submitted", "user_id"=>"0", "question_id"=>$record->id]);
         }
+    }
+    public function get_myquestions(Request $request) {
+        $questions = Question::where('user_id', $request->id)->orderBy('created_at', "desc")->get();
+        return response()->json(["status"=>"success","questions"=> $questions]);
+    }
+    public function download_file(Request $request, $id) {
+        $question = Question::find($id);
+        return Storage::disk("public")->download($question->attached_file);
     }
 }

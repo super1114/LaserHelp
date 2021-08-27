@@ -8,6 +8,8 @@ export default [
   { path: '/login', name: 'login', component: page('auth/login.vue') },
   { path: '/register', name: 'register', component: page('auth/register.vue') },
   { path: '/myquestions', name: 'myquestions', component: page('myquestions.vue') },
+  { path: '/myaccount', name: 'myaccount', component: page('myaccount.vue') },
+  { path: '/expert', name: 'expert', component: page('expert.vue') },
 
   { path: '/password/reset', name: 'password.request', component: page('auth/password/email.vue') },
   { path: '/password/reset/:token', name: 'password.reset', component: page('auth/password/reset.vue') },

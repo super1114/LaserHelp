@@ -24,6 +24,11 @@ export const FETCH_RESOURCES_FAILED = 'FETCH_RESOURCES_FAILED'
 //submit_question.js
 export const SAVE_QUOTE_TEMP = "SAVE_QUOTE_TEMP"
 
+//myquestions.js
+export const FETCH_QUESTIONS = "FETCH_QUESTIONS"
+export const FETCH_QUESTIONS_FAILED = "FETCH_QUESTIONS_FAILED"
+export const FETCH_QUESTIONS_SUCCESS = "FETCH_QUESTIONS_SUCCESS"
+
 
 
 // lang.js

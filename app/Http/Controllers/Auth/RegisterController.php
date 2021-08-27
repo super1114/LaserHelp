@@ -70,28 +70,5 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function regUser(Request $request) {
-        $data = $request->only('username', 'email', 'password');
-        $validator = Validator::make($data, [
-            'username' => 'required|string',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|string|min:6|max:50'
-        ]);
-
-        //Send failed response if request is not valid
-        if ($validator->fails()) {
-            return response()->json(['error' => $validator->messages()], 200);
-        }
-        $user = User::create([
-        	'username' => $request->username,
-        	'email' => $request->email,
-        	'password' => bcrypt($request->password),
-            'user_type' => 1
-        ]);
-        return response()->json([
-            'success' => true,
-            'message' => 'User created successfully',
-            'data' => $user
-        ]);
-    }
+    
 }

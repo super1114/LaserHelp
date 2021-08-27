@@ -46,9 +46,11 @@ export const mutations = {
 export const actions = {
   async fetchUser ({ commit, state }) {
     try {
-      const { data } = await axios.get('/api/user',{token:state.token})
+      console.log(state.token);
+      const { data } = await axios.post('/api/get_user',{token:state.token})
       commit(types.FETCH_USER_SUCCESS, { user: data })
     } catch (e) {
+      console.log(e);
       commit(types.FETCH_USER_FAILURE)
     }
   },
@@ -65,21 +67,18 @@ export const actions = {
     commit(types.LOGOUT)
   },
 
-  async fetchOauthUrl (ctx, { provider }) {
-    const { data } = await axios.post(`/api/oauth/${provider}`)
-
-    return data.url
-  },
+  
   async registerUser ({commit}, payload){
     const { data } = await axios.post("/api/register",payload);
     if(data.success){
-
+      document.location = "/login";
     }
   },
   async loginUser ({commit}, payload){
-    const { data } = await axios.post("/api/login",payload);
+    const { data } = await axios.post("/api/login", payload);
     if(data.success) {
       commit(types.SAVE_TOKEN, {token:data.token, remember:true});
+      document.location = "/myquestions";
     }
   }
 }
