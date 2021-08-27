@@ -31,8 +31,14 @@
                                 <li >
                                     <router-link :to="{name: 'myquestions'}" :class="[active_class=='myquestions'?'active':'']">My Questions</router-link>
                                 </li>
-                                <li >
+                                <li v-if="user.expert==0">
                                     <router-link :to="{name: 'expert'}" :class="[active_class=='expert'?'active':'']">Become an Expert</router-link>
+                                </li>
+                                <li v-if="user.expert==1">
+                                    <router-link :to="{name: 'get_clients'}" :class="[active_class=='get_clients'?'active':'']">Get Clients</router-link>
+                                </li>
+                                <li v-if="user.expert==1">
+                                    <router-link :to="{name: 'help_clients'}" :class="[active_class=='help_clients'?'active':'']">Help your clients</router-link>
                                 </li>
                             </ul>
                         </nav>
@@ -51,8 +57,11 @@ export default {
     },
     data(){
         return {
-            user:this.$store.state.auth.user
+            user:this.$store.state.auth.user.user
         }
+    },
+    created(){
+        console.log(this.user);
     }
 }
 </script>

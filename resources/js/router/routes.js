@@ -10,6 +10,8 @@ export default [
   { path: '/myquestions', name: 'myquestions', component: page('myquestions.vue') },
   { path: '/myaccount', name: 'myaccount', component: page('myaccount.vue') },
   { path: '/expert', name: 'expert', component: page('expert.vue') },
+  { path: '/get_clients', name: 'get_clients', component: page('get_clients.vue') },
+  { path: '/help_clients', name: 'help_clients', component: page('help_clients.vue') },
 
   { path: '/password/reset', name: 'password.request', component: page('auth/password/email.vue') },
   { path: '/password/reset/:token', name: 'password.reset', component: page('auth/password/reset.vue') },

@@ -13,6 +13,7 @@ use App\Http\Controllers\Settings\ProfileController;
 use App\Http\Controllers\Auth\ApiController;
 
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ExpertController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,7 +32,6 @@ Route::group(['middleware' => 'auth:api'], function () {
 
     Route::patch('settings/profile', [ProfileController::class, 'update']);
     Route::patch('settings/password', [PasswordController::class, 'update']);
-
 });
 
 Route::post('submit_question', [QuestionController::class, 'submit_question']);
@@ -52,4 +52,5 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('get_user', [ApiController::class, 'get_user']);
     Route::post('get_myquestions', [QuestionController::class, 'get_myquestions']);
     Route::get('download/{id}', [QuestionController::class, 'download_file']);
+    Route::post('become_expert', [ExpertController::class, 'become_expert']);
 });

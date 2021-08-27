@@ -22,20 +22,16 @@ export default {
     Footer
   },
   metaInfo () {
-    return { title: this.$t('home') }
+    return { title: this.$t('My Account') }
   },
 
   data: () => ({
     title: window.config.appName,
-    questions:[]
   }),
 
   computed: mapGetters({
     authenticated: 'auth/check'
   }),
-  async beforeMount(){
-    
-  },
   async created(){
     await this.$store.dispatch("myquestions/fetchQuestions");
     this.questions = this.$store.state.myquestions.questions;

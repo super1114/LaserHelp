@@ -30,7 +30,7 @@ class ApiController extends Controller
         	'username' => $request->username,
         	'email' => $request->email,
         	'password' => bcrypt($request->password),
-            'user_type' => 1
+            'expert' => 0
         ]);
         if($request->question_id>0){
             $question = Question::find($request->question_id);

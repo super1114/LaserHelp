@@ -24,12 +24,11 @@ export default {
     Footer
   },
   metaInfo () {
-    return { title: this.$t('home') }
+    return { title: this.$t('Become an Expert') }
   },
 
   data: () => ({
     title: window.config.appName,
-    questions:[]
   }),
 
   computed: mapGetters({
@@ -39,11 +38,15 @@ export default {
     
   },
   async created(){
-    await this.$store.dispatch("myquestions/fetchQuestions");
-    this.questions = this.$store.state.myquestions.questions;
+    
   },
-  becomeExpert(){
-      let user = this.$store.state.user;
+  methods:{
+    becomeExpert(){
+        let user_id = this.$store.state.auth.user.user.id;
+        if(typeof user_id!="undefined"){
+            this.$store.dispatch("expert/become_expert",{id:user_id})
+        }
+    }
   }
 }
 </script>
