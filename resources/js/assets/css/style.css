@@ -454,7 +454,10 @@ nav ul li:hover ul.dropdown-menu {display: block;}
 
 .qoute_wrap_two { background: url(https://via.placeholder.com/582x657) no-repeat right 123%; background-size: 293px;margin: 0px;padding-bottom: 98px;}
 .qoute_wrap_two.bg_three { background: url(https://via.placeholder.com/632x671) no-repeat right 100%; background-size: 400px;margin: 0px;padding-bottom: 98px;}
-.qoute {background: white; padding: 55px; border-radius: 10px; box-shadow:1px 1.8px 2.2px rgba(0, 0, 0, 0.034),0 1.7px 2.3px rgba(0, 0, 0, 0.018);}
+.qoute {background: white; padding: 55px; border-radius: 10px; box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072) !important;}
 .qoute .heading_a {color: #222;}
 
 

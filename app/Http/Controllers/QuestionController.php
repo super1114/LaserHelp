@@ -46,4 +46,8 @@ class QuestionController extends Controller
         $question = Question::find($id);
         return Storage::disk("public")->download($question->attached_file);
     }
+    public function get_allquestions(Request $request) {
+        $questions = Question::orderBy("created_at", "desc")->get();
+        return response()->json(["status"=>"success", "questions"=>$questions]);
+    }
 }

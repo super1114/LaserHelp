@@ -3,7 +3,12 @@
     <Header active_class='get_clients'/>
     <responsive-nav />
     <div class="questions_layer">
-        
+      <div v-if="questions.length>0" class="questions_container container">
+        <Question2 v-for="question in questions" :key="question.id" :question="question"/>
+      </div>
+      <div v-else class="questions_container container">
+        <Question2 :noquetion="true" />
+      </div>
     </div>
     <Footer />
   </div>
@@ -14,11 +19,13 @@ import { mapGetters } from 'vuex'
 import Header from "../components/Header"
 import ResponsiveNav from "../components/ResponsiveNav"
 import Footer from '../components/Footer'
+import Question2 from "../components/Question2"
 export default {
   components:{
     Header,
     ResponsiveNav,
-    Footer
+    Footer,
+    Question2
   },
   metaInfo () {
     return { title: this.$t('Get Clients') }
@@ -26,6 +33,7 @@ export default {
 
   data: () => ({
     title: window.config.appName,
+    questions:[]
   }),
 
   computed: mapGetters({
@@ -35,7 +43,8 @@ export default {
     
   },
   async created(){
-    
+    await this.$store.dispatch("get_clients/fetchQuestions");
+    this.questions = this.$store.state.get_clients.questions;
   },
   methods:{
   }

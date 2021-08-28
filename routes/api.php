@@ -53,4 +53,6 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('get_myquestions', [QuestionController::class, 'get_myquestions']);
     Route::get('download/{id}', [QuestionController::class, 'download_file']);
     Route::post('become_expert', [ExpertController::class, 'become_expert']);
+    Route::get('get_allquestions', [QuestionController::class, 'get_allquestions']);
+
 });

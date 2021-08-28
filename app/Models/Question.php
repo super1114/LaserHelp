@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 use Carbon;
-
 class Question extends Model
 {
     protected $fillable = [
@@ -16,7 +15,15 @@ class Question extends Model
         'attached_file',
         'categories'
     ];
-    public function diffTime() {
-        return $this->created_at->diffForHumans(Carbon\Carbon::now(), false);
+    protected $appends = ['difftime', 'user'];
+    
+    public function getDifftimeAttribute()
+    {
+        //dd(Carbon::now('EST'));
+        return str_replace("before","ago",$this->created_at->diffForHumans(Carbon\Carbon::now("EST"), false));
+    }
+    public function getUserAttribute()
+    {
+        return User::find($this->user_id);
     }
 }

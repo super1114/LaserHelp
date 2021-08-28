@@ -1,4 +1,12 @@
-.layer {background: #ddd;}
+.layer {background: #f8f7f5;}
+.quote {
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+  0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+  0 12.5px 10px rgba(0, 0, 0, 0.06),
+  0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+  0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+  0 100px 80px rgba(0, 0, 0, 0.12) !important;
+}
 .questions_layer { padding: 50px 0px; min-height: 1000px; background: #f8f7f5;}
     
 footer {
@@ -86,7 +94,7 @@ button.active_niche:hover {
 .login_form_wrap,.register_form_wrap{
   height: 800px;
   padding: 150px 0px;
-  background-color: #ddd;
+  background-color: #f8f7f5;
 }
 .w-full {
   width: 100%;
@@ -115,7 +123,7 @@ button.active_niche:hover {
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
   transition: none;
 }
-.question_content {
+.question_content, .question_user {
   color: rgb(32, 33, 36);
   margin: 0px;
   font-family: Roboto, Helvetica, Arial, sans-serif;
@@ -140,4 +148,21 @@ button.active_niche:hover {
 }
 .question_files {
   text-decoration: underline !important;
+}
+
+.question_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.question_small_content {
+  margin-bottom: 15px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; 
+}
+.help-button {
+  padding: 3px 10px;
+  text-transform: capitalize;
+  font-weight: normal;
 }
