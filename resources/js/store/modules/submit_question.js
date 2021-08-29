@@ -27,6 +27,7 @@ export const actions = {
     async submitQuestion({ commit, state }, payload) {
         console.log(payload);
         const user = this.getters["auth/user"];
+        console.log(user);
         const router = payload.router;
         let formdata = new FormData();
         formdata.append("loom", payload.loom);
