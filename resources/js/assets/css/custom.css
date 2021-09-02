@@ -81,15 +81,32 @@ button.active_niche:hover {
 }
 .b_green {
   background-color: #2EB67D;
+  outline: none;
+  border: 0px !important;
+}
+button:focus {
+  outline: none !important;
 }
 .b_red {
   background-color: #DB183F;
+  outline: none;
+  border: 0px !important;
+}
+.b_red:hover {
+  background-color: #fB385F;
 }
 .b_blue {
   background-color: #36A7F0;
+  outline: none;
+  border: 0px !important;
+}
+.b_blue:hover {
+  background-color: #56c7F0;
 }
 .b_yellow {
   background-color: #F9C346;
+  outline: none;
+  border: 0px !important;
 }
 .login_form_wrap,.register_form_wrap{
   height: 800px;
@@ -165,4 +182,12 @@ button.active_niche:hover {
   padding: 3px 10px;
   text-transform: capitalize;
   font-weight: normal;
+}
+.sharebuttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sharebuttons > button {
+  margin: 0px 30px;
 }

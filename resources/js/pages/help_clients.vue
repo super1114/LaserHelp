@@ -2,8 +2,11 @@
   <div class="content-wrapper">
     <Header active_class='help_clients'/>
     <responsive-nav />
-    <div class="questions_layer">
-        
+    <div class="help_clients_layer" >
+      <div class="container sharebuttons">
+        <button class="button b_blue" @click="shareScreen">{{this.text}}</button>
+        <button class="button b_blue">Give Remote Access</button>
+      </div>
     </div>
     <Footer />
   </div>
@@ -26,6 +29,7 @@ export default {
 
   data: () => ({
     title: window.config.appName,
+    text: "Share Screen"
   }),
 
   computed: mapGetters({
@@ -38,6 +42,17 @@ export default {
     
   },
   methods:{
+    shareScreen(e) {
+      if(this.text=="Share Screen"){
+        this.text = "Stop Sharing";
+        e.target.classList.remove("b_blue");
+        e.target.classList.add("b_red");
+      } else {
+        this.text="Share Screen"
+        e.target.classList.remove("b_red");
+        e.target.classList.add("b_blue");
+      }
+    }
   }
 }
 </script>
@@ -45,5 +60,9 @@ export default {
 <style scoped>
   .content-wrapper {
     background: #f8f7f5;
+  }
+  .help_clients_layer {
+    height: 800px;
+    padding: 300px;
   }
 </style>
